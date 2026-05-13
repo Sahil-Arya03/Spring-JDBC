@@ -16,11 +16,7 @@ Spring Framework
 Spring JDBC
 PostgreSQL
 Maven
-▶️ How to Run
-Clone the repository
-Configure PostgreSQL database credentials
-Import the project as a Maven project
-Run the application
+
 📖 Purpose
 
 This repository is created for practicing and improving backend development skills using Spring JDBC and database integration.
