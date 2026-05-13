@@ -1,22 +1,22 @@
 package org.jdbc;
 
-import org.springframework.context.ApplicationContext;
-import org.springframework.context.support.ClassPathXmlApplicationContext;
-import org.springframework.jdbc.core.JdbcTemplate;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.CommandLineRunner;
+import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
 
-/**
- * Hello world!
- *
- */
-public class App 
+@SpringBootApplication
+public class App implements CommandLineRunner
 {
+    @Autowired
+    private Studentdao dao;
     public static void main( String[] args )
     {
-        System.out.println( "Spring jdbc program");
-        ApplicationContext conn = new ClassPathXmlApplicationContext("config.xml");
-        JdbcTemplate jdbcTemplate = conn.getBean("jdbcTemplate",JdbcTemplate.class);
-        String sql = "INSERT INTO students(name, age, email) VALUES (?,?,?);";
-        int result = jdbcTemplate.update(sql,"aarit",34,"aarit34945@gmail.com");
-        System.out.println("number of rows affected: "+result+" ");
+        SpringApplication.run(App.class, args);
+    }
+    @Override
+    public void run (String... args)
+    {
+        dao.insert();
     }
 }
