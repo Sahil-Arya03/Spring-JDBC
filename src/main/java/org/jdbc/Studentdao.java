@@ -27,4 +27,9 @@ public class Studentdao
         int result = jdbcTemplate.update(Sql,st.getName(),st.getAge(),st.getEmail(),id);
         System.out.println("rows affected"+result);
     }
+    public void Display()
+    {
+        String sql = "select * from students";
+        jdbcTemplate.query(sql, new rowmapper());
+    }
 }

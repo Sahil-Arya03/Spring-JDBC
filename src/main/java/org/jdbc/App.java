@@ -11,7 +11,7 @@ import java.util.Scanner;
 public class App implements CommandLineRunner
 {
     @Autowired
-    private Studentdao dao;
+    private studentImple dao;
     public static void main( String[] args )
     {
         SpringApplication.run(App.class, args);
@@ -19,7 +19,7 @@ public class App implements CommandLineRunner
     @Override
     public void run (String... args)
     {   System.out.println("running the application");
-        System.out.println("choose the operation\n"+"1.insert\n"+"2.update\n"+"3.delete");
+        System.out.println("choose the operation\n"+"1.insert\n"+"2.update\n"+"3.delete\n"+"4.display");
         Scanner sc = new Scanner(System.in);
         int choice = sc.nextInt();
         switch (choice)
@@ -49,6 +49,10 @@ public class App implements CommandLineRunner
                 System.out.println("enter the id");
                 int icd= sc.nextInt();
                 dao.delete(icd);
+                break;
+            case 4:
+                System.out.println("table display");
+                dao.Display();
                 break;
         }
     }
